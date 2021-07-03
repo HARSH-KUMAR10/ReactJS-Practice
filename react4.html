@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    React 1 :
+    <p id="abc"></p>
+    React 2 :
+    <p id="def"></p>
+    <script type="text/babel">
+        function P1(){
+            return <h2>Hello World</h2>;
+        }
+        function P2(){
+            return <h2>World Hello</h2>;
+        }
+        ReactDOM.render(<P1 />,document.getElementById("abc"));
+        ReactDOM.render(<P2 />,document.getElementById("def"));
+    </script>
+</body>
+</html>

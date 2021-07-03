@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class MyForm extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={data:''};
+        }
+        submitHandle = (e) =>{
+            e.preventDefault();
+            alert("submitted "+this.state.data);
+        }
+        changeHandle = (e) => {
+            this.setState({data:e.target.value});
+        }
+        render(){
+            return(
+            <form onSubmit={this.submitHandle}>
+            <h1>{this.state.data}</h1>
+            <input type="text" onChange={this.changeHandle}/>
+            <input type="submit"/>
+            </form>
+            );
+        }
+    }
+    ReactDOM.render(<MyForm/>,document.getElementById("root"));
+    </script>
+</body>
+</html>

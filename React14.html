@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class MyForm extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {data:""};
+        }
+        changed = (e) => {
+            this.setState({data:e.target.value});
+        }
+        render(){
+            let Head = "";
+            if(this.state.data){
+                Head = <h1> Hello {this.state.data}</h1>;
+            }else{
+                Head=<h1>Enter Name</h1>;
+            }
+            return (
+                <div>
+                {Head}
+                <input type="text" onChange={this.changed}/>
+                </div>
+            );
+        }
+    }
+    ReactDOM.render(<MyForm/>,document.getElementById("root"));
+    </script>
+</body>
+</html>

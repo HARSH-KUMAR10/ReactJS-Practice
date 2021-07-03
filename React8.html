@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+    class Car extends React.Component{
+        constructor(){
+            super();
+            this.state = {name:"Ford",brand:"Mustang"};
+        }
+        changeBrand = ()=>{
+            this.setState({brand:"Mustang GT"});
+        }
+        render(){
+            return (
+                <div>
+                    <h1>This is {this.state.name} {this.state.brand}</h1>
+                    <button type="button" onClick={this.changeBrand}>Change Brand</button>    
+                </div>
+            );
+        }
+    }
+    ReactDOM.render(<Car/>,document.getElementById('content'));
+    </script>
+    
+</body>
+</html>
